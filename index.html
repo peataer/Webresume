@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VIKASH YADAV | Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    :root {
+      --black: #000000;
+      --mustard: #FFC107;
+      --white: #fff;
+      --dark-grey: #111111;
+      --font-main: 'Poppins', 'Montserrat', Arial, sans-serif;
+      --transition: 0.3s;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-main);
+      background: var(--black);
+      color: var(--white);
+      scroll-behavior: smooth;
+    }
+    body::before {
+      content:"";
+      position:fixed;
+      width:100vw;
+      height:100vh;
+      z-index:-1;
+      background: linear-gradient(120deg, #191a2b 0%, #28282d 30%, #232227 100%);
+      background-size: 300% 300%;
+      animation: bgGradient 23s ease-in-out infinite;
+    }
+    @keyframes bgGradient {
+      0% {background-position:0% 85%;}
+      50%{background-position:100% 20%;}
+      100%{background-position:0% 85%;}
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    /* Header */
+    header {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:40px 6vw 0 6vw;
+      background:transparent;
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+    .logo {
+      font-weight:700;
+      font-size:1.8rem;
+      color:var(--mustard);
+      letter-spacing:2px;
+    }
+    nav ul {
+      display:flex;
+      gap:36px;
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+    nav a {
+      color:var(--white);
+      font-size:1.07rem;
+      font-weight:500;
+      position:relative;
+      transition:color var(--transition), border var(--transition);
+      padding-bottom:2px;
+    }
+    nav a:hover, nav a.active {
+      color:var(--mustard);
+    }
+    nav a.active::after {
+      content:'';
+      position:absolute;
+      left:0;
+      width:100%;
+      height:2px;
+      background-color:var(--mustard);
+      bottom:-4px;
+      border-radius:2px;
+    }
+
+    /* Section basic spacing */
+    section {
+      width:90vw;
+      max-width:1200px;
+      margin:auto;
+      padding:60px 0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    /* Hero Section */
+    .hero-flex {
+      display:flex;
+      width:100%;
+      align-items:center;
+      justify-content:space-between;
+      gap:64px;
+    }
+    .hero-left {
+      flex:1;
+    }
+    .hero-intro {
+      font-size:1.1rem;
+      font-weight:600;
+      letter-spacing:3px;
+      color:var(--mustard);
+      margin-bottom:18px;
+    }
+    .hero-title {
+      font-size:2.8rem;
+      font-weight:700;
+      margin-bottom:16px;
+      color:var(--white);
+      line-height:1.1;
+      letter-spacing:-1px;
+    }
+    .hero-title span {
+      color:var(--mustard);
+    }
+    .hero-sub {
+      font-size:1.19rem;
+      font-weight:400;
+      color:var(--white);
+      opacity:0.90;
+      margin-bottom:30px;
+    }
+    .hero-btns {
+      display:flex;
+      gap:16px;
+      margin-bottom:32px;
+    }
+    .btn-mustard, .btn-dark {
+      padding:13px 30px;
+      font-size:1.07rem;
+      border:none;
+      border-radius:30px;
+      font-weight:600;
+      cursor:pointer;
+      transition:transform var(--transition), box-shadow var(--transition),color var(--transition),background var(--transition);
+      box-shadow: 0 3px 16px rgba(255,193,7,0.13);
+    }
+    .btn-mustard {
+      background:var(--mustard);
+      color:var(--black);
+    }
+    .btn-mustard:hover {
+      transform:scale(1.06);
+      box-shadow: 0 6px 24px rgba(255,193,7,0.21);
+    }
+    .btn-dark {
+      background:var(--black);
+      color:var(--white);
+      border:2px solid var(--white);
+    }
+    .btn-dark:hover {
+      border-color:var(--mustard);
+      color:var(--mustard);
+      transform:scale(1.05);
+      box-shadow: 0 4px 20px rgba(255,193,7,0.09);
+    }
+    .hero-right {
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      min-width:300px;
+      min-height:330px;
+    }
+    .mustard-circle {
+      width:320px;
+      height:320px;
+      background:var(--mustard);
+      border-radius:60% 50% 48% 54%;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:0;
+      box-shadow:0 8px 46px 0 #ffc1071c;
+      animation: floatCircle 4s ease-in-out infinite alternate;
+    }
+    @keyframes floatCircle {
+      0% { transform: translateY(0px);}
+      100% {transform:translateY(24px);}
+    }
+    .hero-photo {
+      width:210px;
+      height:210px;
+      border-radius:50%;
+      object-fit:cover;
+      position:absolute;
+      left:50%;
+      top:50%;
+      transform:translate(-50%,-50%);
+      border:6px solid #111;
+      box-shadow:0 4px 22px #2225;
+    }
+
+    /* About Section */
+    .about-flex {
+      display:flex;
+      width:100%;
+      align-items:center;
+      justify-content:space-between;
+      gap:58px;
+    }
+    .about-img {
+      width:200px;
+      height:200px;
+      border-radius:24px;
+      object-fit:cover;
+      border:5px solid var(--mustard);
+      box-shadow:0 6px 28px #ffc1072f;
+      background:#19191d;
+      margin-bottom:16px;
+    }
+    .about-right {
+      flex:1.2;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .about-title {
+      font-size:2.2rem;
+      font-weight:700;
+      color:var(--mustard);
+      letter-spacing:1px;
+      margin-bottom:10px;
+    }
+    .about-desc {
+      color:var(--white);
+      font-size:1.12rem;
+      opacity:0.94;
+      line-height:1.6;
+      margin-bottom:18px;
+    }
+    .about-list {
+      margin:12px 0 8px 0;
+    }
+    .about-list-item {
+      font-size:1.03rem;
+      margin-bottom:5px;
+    }
+    .about-list-item span {
+      color:var(--mustard); font-weight:600;
+      min-width:90px;display:inline-block;
+    }
+    .about-stat {
+      font-size:1.1rem;
+      color:var(--mustard);
+      margin-top:18px;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+    .btn-cv {
+      background:var(--mustard);
+      color:var(--black);
+      border:none;
+      padding:11px 26px;
+      border-radius:18px;
+      font-size:1.03rem;
+      font-weight:600;
+      cursor:pointer;
+      transition:transform var(--transition),box-shadow var(--transition);
+      box-shadow:0 3px 16px rgba(255,193,7,0.14);
+      margin-top:10px;
+    }
+    .btn-cv:hover {
+      transform:scale(1.07);
+      box-shadow:0 7px 26px rgba(255,193,7,0.27);
+    }
+
+    /* Skills Section */
+    .skills-title {
+      font-size:2rem;
+      font-weight:700;
+      letter-spacing:1.2px;
+      color:var(--mustard);
+      margin-bottom:22px;
+    }
+    .skills-cols {
+      width:100%;
+      display:flex;
+      flex-wrap:wrap;
+      gap:44px;
+      justify-content:center;
+    }
+    .skills-col {
+      flex:1;
+      min-width:220px;
+      padding:0 18px;
+    }
+    .skills-head {
+      font-size:1.17rem;
+      color:var(--mustard);
+      font-weight:600;
+      margin-bottom:6px;
+    }
+    .skills-list {
+      list-style:none;
+      padding:0;
+      margin:0;
+      color:var(--white);
+      font-size:1.05rem;
+      opacity:0.92;
+    }
+    .skills-list li {
+      margin-bottom:5px;
+      padding-left:18px;
+      position:relative;
+    }
+    .skills-list li:before {
+      content:'•';
+      color:var(--mustard);
+      position:absolute;
+      left:0;
+    }
+
+    /* Projects Section */
+    .projects-title {
+      font-size:2rem; color:var(--mustard); font-weight:700; margin-bottom:22px;
+    }
+    .project-cats {
+      display:flex;
+      gap:48px; margin-bottom:24px; justify-content:center;
+      flex-wrap:wrap;
+    }
+    .project-cat {
+      font-size:1.1rem; color:var(--mustard); font-weight:600; margin-bottom:14px; padding-bottom:4px;
+      border-bottom:2px solid var(--mustard);
+      display:inline-block;
+    }
+    .projects-group {
+      display:flex;
+      flex-wrap:wrap;
+      gap:32px;
+      justify-content:center;
+      margin-bottom:22px;
+    }
+    .project-card {
+      background:var(--dark-grey);
+      border-radius:18px;
+      box-shadow:0 3px 10px #ffc10727;
+      padding:30px 24px;
+      min-width:260px;
+      max-width:340px;
+      color:var(--white);
+      position:relative;
+      flex:1 0 260px;
+      transition:transform var(--transition), box-shadow var(--transition);
+      margin-bottom:16px;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:15px;
+    }
+    .project-card:hover {
+      transform:scale(1.06);
+      box-shadow:0 9px 34px #ffc10744;
+    }
+    .project-title {
+      font-size:1.15rem;
+      font-weight:700;
+      color:var(--mustard);
+      margin-bottom:6px;
+    }
+    .project-desc {
+      font-size:1.01rem;
+      color:var(--white);
+      opacity:0.86;
+      margin-bottom:5px;
+    }
+    .project-link {
+      font-size:0.99rem;
+      color:var(--mustard);
+      font-weight:600;
+    }
+    .project-img {
+      width:70px; height:70px; object-fit:cover; border-radius:8px; background:var(--mustard); box-shadow:0 2px 13px #ffc10742; margin-bottom:10px;
+    }
+
+    /* Resume Section */
+    .resume-title {
+      font-size:2rem; color:var(--mustard); font-weight:700; margin-bottom:22px;
+      text-align:center;
+    }
+    .resume-bg {
+      position:absolute; top:60px; left:0; width:100%; font-size:7rem; color:#212121; font-weight:700; text-align:center; z-index:0; opacity:.12; pointer-events:none; user-select:none;
+    }
+    .resume-cols {
+      width:100%; display:flex; gap:32px; justify-content:center; position:relative; z-index:1; flex-wrap:wrap;
+    }
+    .resume-card {
+      background:var(--dark-grey);
+      border-radius:18px;
+      box-shadow:0 3px 10px #ffc10729;
+      flex:1 0 260px; max-width:340px;
+      padding:30px 24px;
+      color:var(--white);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-bottom:22px;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .resume-card:hover {
+      transform:scale(1.07);
+      box-shadow:0 7px 28px #ffc10745;
+    }
+    .resume-years {
+      color:var(--mustard); font-size:1.07rem; font-weight:600;
+    }
+    .resume-pos {
+      font-size:1.11rem; font-weight:700; color:var(--white); margin-bottom:3px;
+    }
+    .resume-inst {
+      font-size:1.01rem; color:var(--white); opacity:.79;
+    }
+    .resume-desc {
+      font-size:0.98rem; color:var(--white); opacity:.91;
+    }
+
+    /* Experience & Achievements */
+    .extras-title {
+      color:var(--mustard); font-size:1.53rem; font-weight:700; letter-spacing:1px; margin-bottom:20px;
+    }
+    .extras-list {
+      width:100%; max-width:800px; padding:0; margin:0; list-style:none;
+    }
+    .extras-list li {
+      background:var(--dark-grey); color:var(--white); margin-bottom:10px; padding:12px 22px; border-radius:10px; font-size:1.05rem; opacity:.93;
+      box-shadow:0 2px 9px #ffc10720;
+    }
+
+    /* Contact Section */
+    .contact-title {
+      font-size:1.65rem; color:var(--mustard); font-weight:700; margin-bottom:14px;
+    }
+    .contact-desc {
+      font-size:1.09rem; color:var(--white); opacity:.9; margin-bottom:15px;
+    }
+    .contact-details {
+      margin-bottom:24px;
+    }
+    .contact-details span {
+      font-weight:600; color:var(--mustard);
+    }
+    .contact-socials {
+      display:flex; gap:26px; margin-bottom:16px;
+    }
+    .contact-socials a {
+      color:var(--white); font-size:1.43rem; transition:color var(--transition),transform var(--transition);
+    }
+    .contact-socials a:hover {
+      color:var(--mustard); transform:scale(1.13);
+    }
+    .contact-form input, .contact-form textarea {
+      width:100%; font:inherit; color:var(--white); background:var(--dark-grey);
+      margin-bottom:12px; border:1px solid #222; border-radius:6px; padding:9px 13px;
+      font-size:1.01rem; resize:none;
+    }
+    .contact-form textarea { min-height:80px;}
+    .contact-form button {
+      padding:11px 23px; font-size:1.09rem; border:none; border-radius:14px; background:var(--mustard); color:var(--black); font-weight:600;
+      cursor:pointer; transition:transform var(--transition),box-shadow var(--transition);
+      box-shadow:0 3px 13px rgba(255,193,7,0.14);
+    }
+    .contact-form button:hover {
+      transform:scale(1.07); box-shadow:0 7px 23px rgba(255,193,7,0.31);
+    }
+
+    /* Footer */
+    footer {
+      width:100%;
+      padding:28px; background:var(--black); color:var(--white); text-align:center; font-size:1rem;
+      letter-spacing:.7px;
+      margin-top:38px;
+    }
+
+    /* Reveal Animation */
+    .reveal { opacity:0; transform:translateY(50px); transition:opacity 0.7s cubic-bezier(.5,.4,.8,.2), transform 0.8s cubic-bezier(.5,.4,.8,.2); }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    @media (max-width:1100px) {
+      .hero-flex, .about-flex, .resume-cols, .skills-cols, .projects-group {
+        flex-direction:column;
+        gap:36px !important;
+      }
+      header, section { width:98vw; }
+      footer { font-size:0.93rem;}
+    }
+    @media (max-width:600px) {
+      header { flex-direction:column; padding:24px 6vw 0 6vw;}
+      .logo { margin-bottom:12px;}
+      nav ul { gap:16px; }
+      section { padding:38px 0;}
+      .hero-title { font-size:2.1rem;}
+      .about-title, .skills-title, .projects-title, .resume-title, .extras-title, .contact-title { font-size:1.25rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header>
+    <div class="logo">VIKASH YADAV</div>
+    <nav>
+      <ul>
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <section id="home" class="reveal">
+    <div class="hero-flex">
+      <div class="hero-left">
+        <div class="hero-intro">HELLO!</div>
+        <div class="hero-title">I'm <span>VIKASH</span> YADAV</div>
+        <div class="hero-sub">
+          A Class 12 student passionate about Web Development, Coding, and Creative Design. <br>
+          I love building websites, coding interactive projects, and designing digital posters that bring ideas to life.
+        </div>
+        <div class="hero-btns">
+          <a href="#projects"><button class="btn-mustard">View My Projects</button></a>
+          <a href="resume.pdf" download><button class="btn-dark">Download Resume</button></a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="mustard-circle">
+          <img src="imagesmyphoto.png.jpg" class="hero-photo">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About Me -->
+  <section id="about" class="reveal">
+    <div class="about-flex">
+      <div class="about-left">
+        <img src="WhatsApp.png.jpg" alt="About Vikash" class="about-img">
+      </div>
+      <div class="about-right">
+        <div class="about-title">About Me</div>
+        <div class="about-desc">
+          I am a Class 12 student with a strong interest in technology and design. Over the past year, I have learned and practiced skills in HTML, CSS, JavaScript, and Python, along with creative poster design. I have successfully completed 15+ projects, ranging from personal websites to interactive web applications and creative posters. My goal is to grow as a developer and designer, while contributing innovative ideas to the tech world.
+        </div>
+        <div class="about-list">
+          <div class="about-list-item"><span>Name:</span> Vikash Yadav</div>
+          <div class="about-list-item"><span>Age:</span> 17</div>
+          <div class="about-list-item"><span>School:</span>J.M.G Senior Sec Public School Kalakankar Kunda Prathpaghad</div>
+          <div class="about-list-item"><span>Location:</span> Uttar Pardhesh, India</div>
+          <div class="about-list-item"><span>Email:</span> vikashyadav100m@email.com</div>
+          <div class="about-list-item"><span>Phone:</span> +91 9140764890</div>
+        </div>
+        <div class="about-stat">15+ Projects Completed</div>
+        <button class="btn-cv">Download CV</button>
+      </div>
+    </div>
+  </section>
+  <!-- Skills Section -->
+  <section id="skills" class="reveal">
+    <div class="skills-title">Skills</div>
+    <div class="skills-cols">
+      <div class="skills-col">
+        <div class="skills-head">💻 Programming & Web Development</div>
+        <ul class="skills-list">
+          <li>HTML, CSS, JavaScript</li>
+          <li>Python (basics to intermediate)</li>
+          <li>Building interactive websites</li>
+        </ul>
+      </div>
+      <div class="skills-col">
+        <div class="skills-head">🎨 Design & Creativity</div>
+        <ul class="skills-list">
+          <li>Poster design (Canva, Photoshop, Figma)</li>
+          <li>UI/UX basics</li>
+          <li>Logo design</li>
+        </ul>
+      </div>
+      <div class="skills-col">
+        <div class="skills-head">⚡ Other Skills</div>
+        <ul class="skills-list">
+          <li>Problem-solving</li>
+          <li>Time management</li>
+          <li>Quick learning ability</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- Projects Section -->
+  <section id="projects" class="reveal">
+    <div class="projects-title">Projects</div>
+    <div class="project-cats">
+      <div class="project-cat">Web Development Projects</div>
+      <div class="project-cat">Python Projects</div>
+      <div class="project-cat">Poster Designs</div>
+    </div>
+    <!-- Web Dev Projects -->
+    <div class="projects-group">
+      <div class="project-card">
+        <div class="project-title">Personal Portfolio Website</div>
+        <div class="project-desc">Built with HTML, CSS, and JavaScript to showcase my skills and projects.</div>
+        <div class="project-link">Tools: HTML, CSS, JS</div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Online Calculator</div>
+        <div class="project-desc">A web-based calculator using JavaScript for basic arithmetic operations.</div>
+        <div class="project-link">Tools: JavaScript, HTML</div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Quiz Web App</div>
+        <div class="project-desc">Interactive quiz app made with JS and Python backend.</div>
+        <div class="project-link">Tools: JavaScript, Python</div>
+      </div>
+    </div>
+    <!-- Python Projects -->
+    <div class="projects-group">
+      <div class="project-card">
+        <div class="project-title">School Management Mini System</div>
+        <div class="project-desc">Simple Python project to manage student data with add/delete and search features.</div>
+        <div class="project-link">Tools: Python</div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Weather Info App</div>
+        <div class="project-desc">Fetches live weather info using Python and APIs.</div>
+        <div class="project-link">Tools: Python, API</div>
+      </div>
+    </div>
+    <!-- Poster Designs -->
+    <div class="projects-group">
+      <div class="project-card">
+        <div class="project-title">Poster Design – Tech Fest</div>
+        <div class="project-desc">Designed a digital poster for school tech fest using Canva.</div>
+        <div class="project-link">Tools: Canva</div>
+      </div>
+      <div class="project-card">
+        <div class="project-title">Python Bootcamp Poster</div>
+        <div class="project-desc">Creatively designed event poster for a school Python bootcamp.</div>
+        <div class="project-link">Tools: Figma</div>
+      </div>
+    </div>
+    <!-- Add more project cards as needed, up to 15+ -->
+  </section>
+  <!-- Resume Section -->
+  <section id="resume" class="reveal" style="position:relative;">
+    <div class="resume-title">Resume</div>
+    <div class="resume-bg">Resume</div>
+    <div class="resume-cols">
+      <div class="resume-card">
+        <div class="resume-years">2024–2025</div>
+        <div class="resume-pos">Class 12 Student</div>
+        <div class="resume-inst">Delhi Public School</div>
+        <div class="resume-desc">Focused on tech, coding, and creative participation in school events. </div>
+      </div>
+      <div class="resume-card">
+        <div class="resume-years">2023–2024</div>
+        <div class="resume-pos">Web Designer Practice</div>
+        <div class="resume-inst">Self-Projects</div>
+        <div class="resume-desc">Built web projects including portfolio, calculators, and mini-apps to learn skills and tools hands-on.</div>
+      </div>
+      <div class="resume-card">
+        <div class="resume-years">2023–2024</div>
+        <div class="resume-pos">Poster Designer</div>
+        <div class="resume-inst">School Events</div>
+        <div class="resume-desc">Designed posters for club activities and technology events, helping promote events visually.</div>
+      </div>
+      <!-- Add more resume cards as needed -->
+    </div>
+  </section>
+  <!-- Experience Section -->
+  <section id="experience" class="reveal">
+    <div class="extras-title">Experience Highlights</div>
+    <ul class="extras-list">
+      <li>Completed 15+ personal projects in web development and design.</li>
+      <li>Contributed to school tech events as a designer and coder.</li>
+      <li>Worked on collaborative coding projects with classmates.</li>
+    </ul>
+  </section>
+  <!-- Achievements Section -->
+  <section id="achievements" class="reveal">
+    <div class="extras-title">Achievements</div>
+    <ul class="extras-list">
+      <li>Completed 15+ projects before Class 12.</li>
+      <li>Designed posters for school events.</li>
+      <li>Built multiple working websites using HTML, CSS, and JavaScript.</li>
+      <li>Self-learned Python basics.</li>
+    </ul>
+  </section>
+  <!-- Contact Section -->
+  <section id="contact" class="reveal">
+    <div class="contact-title">Contact Me</div>
+    <div class="contact-desc">
+      Let’s connect! If you want to collaborate, hire me, or just say hello, feel free to contact me below.
+    </div>
+    <div class="contact-details">
+      <div><span>Email:</span> vikash@email.com</div>
+    <div class="contact-socials">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-behance"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-dribbble"></i></a>
+    </div>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 VIKASH YADAV. All Rights Reserved.
+  </footer>
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+          this.classList.add('active');
+          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Reveal sections on scroll
+    function revealSections() {
+      document.querySelectorAll('.reveal').forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', revealSections);
+    window.addEventListener('load', revealSections);
+
+    // Button hover/click animations
+    document.querySelectorAll('button').forEach(btn => {
+      btn.addEventListener('click', function() {
+        btn.classList.remove('pulse');
+        void btn.offsetWidth;
+        btn.classList.add('pulse');
+        setTimeout(()=>btn.classList.remove('pulse'), 340);
+      });
+    });
+  </script>
+</body>
+</html>
